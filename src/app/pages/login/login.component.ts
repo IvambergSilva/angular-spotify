@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -6,9 +7,13 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
-  constructor(private spotifyService: SpotifyService) {}
+  constructor(
+    private spotifyService: SpotifyService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.checkToken()
@@ -16,9 +21,9 @@ export class LoginComponent implements OnInit {
 
   checkToken() {
     const token = this.spotifyService.getTokenUrlCallBack()
-
     if(!!token) {
       this.spotifyService.setAccessToken(token)
+      this.router.navigate(['/player'])
     }
   }
 

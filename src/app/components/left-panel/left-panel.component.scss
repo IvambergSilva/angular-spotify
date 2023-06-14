@@ -1,0 +1,42 @@
+@import 'variables';
+
+$h-spotify-logo: 120px;
+$h-menu-options: 150px;
+
+.leftPanel-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    min-height: 100vh;
+    overflow-y: hidden;
+    background: $background-secundary;
+    box-shadow: 1px 1px 40px #00000015;
+    padding: 0 40px;
+    
+    .leftPanel-header {
+        // flex-grow: 1;
+        flex-direction: column;
+        height: 100%;
+        
+        .leftPanel-logo {
+            min-height: $h-spotify-logo;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            img {
+                width: 70%;
+            }
+        }
+    }
+    nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        * {
+            margin-bottom: 10px;
+        }
+    }
+}
+
