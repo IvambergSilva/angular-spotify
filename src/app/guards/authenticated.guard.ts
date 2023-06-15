@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SpotifyService } from '../services/spotify.service';
 
@@ -7,7 +7,7 @@ import { SpotifyService } from '../services/spotify.service';
   providedIn: 'root'
 })
 
-export class AuthenticatedGuard implements CanLoad {
+export class AuthenticatedGuard  {
   constructor(
     private router: Router,
     private spotifyService: SpotifyService

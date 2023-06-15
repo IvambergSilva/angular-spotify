@@ -1,4 +1,8 @@
-<button type="button">
+<button type="button"
+    [class.select]='select'
+    (click)="clickSelect()"
+    #button
+    >
     <ng-content></ng-content>
-    <span>{{ description }}</span>
+    <span>{{ name }}</span>
 </button>

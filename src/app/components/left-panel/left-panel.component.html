@@ -4,11 +4,55 @@
             <img src="assets/images/spotify-logo.png" alt="">
         </div>
     </div>
-    <nav>
+
+    <div class="leftPanel-menu">
         <app-menu-button
-            description="Home"
+            name="Home"
+            [select]="menuSelected === 'Home'"
+            (click)="clickSelect('Home')"
         >
-        
+            <fa-icon [icon]="homeIcon"></fa-icon>
         </app-menu-button>
-    </nav>
+
+        <app-menu-button
+            name="Pesquisar"
+            [select]="menuSelected === 'Pesquisar'"
+            (click)="clickSelect('Pesquisar')"
+        >
+            <fa-icon [icon]="searchIcon"></fa-icon>
+        </app-menu-button>
+
+        <app-menu-button
+            name="Artistas"
+            [select]="menuSelected === 'Artistas'"
+            (click)="clickSelect('Artistas')"
+        >
+            <fa-icon [icon]="artistIcon"></fa-icon>
+        </app-menu-button>
+    </div>
+
+    <div class="leftPanel-container-playLists">
+        <h1>PlayLists</h1>
+        <div class="leftPanel-playLists">
+            <app-menu-button
+                *ngFor="let playlist of playlists"
+                name="{{playlist.name}}"
+                [select]="menuSelected === '{{ playlist.id }}'"
+                (click)="clickSelect(playlist.id)"
+            >
+            <fa-icon [icon]="playlistIcon"></fa-icon>
+            </app-menu-button>
+        </div>
+    </div>
+    
+    <div class="leftPanel-userInfo">
+        <div class="leftPanel-userInfo-avatar">
+            <img src="{{userInfoImageUrl}}" alt="">
+        </div>
+        <h2>{{userInfoName}}</h2>
+        <fa-icon
+            [icon]="signOutIcon"
+            (click)="logout()"
+        ></fa-icon>
+    </div>
 </div>

@@ -2,6 +2,9 @@
 
 $h-spotify-logo: 120px;
 $h-menu-options: 150px;
+$h-footer-user: 70px;
+
+$h-play-lists: calc($h-spotify-logo + $h-menu-options + $h-footer-user);
 
 .leftPanel-container {
     display: flex;
@@ -9,11 +12,11 @@ $h-menu-options: 150px;
     max-width: 300px;
     min-height: 100vh;
     overflow-y: hidden;
-    background: $background-secundary;
+    background: $color-secundary;
     box-shadow: 1px 1px 40px #00000015;
-    padding: 0 40px;
     
     .leftPanel-header {
+        padding: 0 40px;
         // flex-grow: 1;
         flex-direction: column;
         height: 100%;
@@ -29,13 +32,77 @@ $h-menu-options: 150px;
             }
         }
     }
-    nav {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
 
+    .leftPanel-menu {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        padding: 0 40px;
+        
         * {
             margin-bottom: 10px;
+        }
+    }
+
+    .leftPanel-container-playLists {
+        padding: 0 40px;
+        flex-grow: 1;
+
+        h1 {
+            margin: 10px 0;
+            font-weight: 700;
+            font-size: 1rem;
+            color: $color-lightBlack-30;
+        }
+
+        .leftPanel-playLists {
+            max-height: calc(95vh - $h-play-lists);
+            overflow-y: auto;
+        
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .leftPanel-userInfo {
+        width: 100%;
+        height: $h-footer-user;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-grow: 0;
+        bottom: 0;
+        padding: 5px 30px;
+        
+        border-top: 1px solid $color-lightBlack-20;
+    
+        .leftPanel-userInfo-avatar {
+            width: 5rem;
+            max-height: 5rem;
+            overflow: hidden;
+            border-radius: 50%;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                flex-grow: 0;
+            }
+        }
+
+        h2 {
+            color: $color-primary;
+            flex-grow: 1;
+            margin-left: 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        fa-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: $color-primary;
+            flex-grow: 0;
         }
     }
 }
