@@ -1,4 +1,6 @@
+import { addMilliseconds, format } from "date-fns";
 import { IArtist } from "../Interfaces/IArtist";
+import { IMusic } from "../Interfaces/IMusic";
 import { IPlaylist } from "../Interfaces/IPlaylist";
 import { IUser } from "../Interfaces/IUser";
 
@@ -23,5 +25,27 @@ export function SpotifyTopArtistHandling(topArtists: SpotifyApi.ArtistObjectFull
         id: topArtists.id,
         name: topArtists.name,
         imageUrl: topArtists.images.sort((a,b) => a.width - b.width).pop().url
+    }
+}
+
+export function SpotifySongsHandling(songs: SpotifyApi.TrackObjectFull): IMusic {
+    const msToMin = (ms: number) => {
+        const data = addMilliseconds(new Date(0), ms);
+        return format(data, 'mm:ss')
+    }
+    
+    return {
+        id: songs.uri,
+        title: songs.name,
+        album: {
+            id: songs.id,
+            name: songs.album.name,
+            imageUrl: songs.album.images.pop().url
+        },
+        artists: songs.artists.map(artists => ({
+            id: artists.id,
+            name: artists.name
+        })),
+        time: msToMin(songs.duration_ms)
     }
 }

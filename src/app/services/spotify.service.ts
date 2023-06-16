@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment.development';
 import Spotify from 'spotify-web-api-js'
 import { IUser } from '../Interfaces/IUser'
-import { SpotifyPlayListHandling, SpotifyTopArtistHandling, SpotifyUserHandling } from '../Common/spotifyHelper';
+import { SpotifyPlayListHandling, SpotifySongsHandling, SpotifyTopArtistHandling, SpotifyUserHandling } from '../Common/spotifyHelper';
 import { IPlaylist } from '../Interfaces/IPlaylist';
 import { Router } from '@angular/router';
 import { IArtist } from '../Interfaces/IArtist';
+import { IMusic } from '../Interfaces/IMusic';
 
 @Injectable({
   providedIn: 'root'
@@ -65,16 +66,27 @@ export class SpotifyService {
     localStorage.setItem('token', token)
   }
 
-  async getPlayList(offset = 0, limit = 0): Promise<IPlaylist[]> {
+  async getPlayList(offset=0, limit=0): Promise<IPlaylist[]> {
     const playlists = await this.spotifyApi.getUserPlaylists(this.user.id, { offset, limit: 50 })
     playlists.items
     console.log(playlists.items);
     return playlists.items.map(SpotifyPlayListHandling)
   }
 
-  async getTopArtistas(limit = 10): Promise<IArtist[]>{
-    const artists = await this.spotifyApi.getMyTopArtists({limit})
+  async getTopArtistas(limit=10): Promise<IArtist[]>{
+    const artists = await this.spotifyApi.getMyTopArtists({ limit })
+    console.log(artists);
     return artists.items.map(SpotifyTopArtistHandling)
+  }
+
+  async getSongs(offset = 0, limit=50): Promise<IMusic[]> {
+    const songs = await this.spotifyApi.getMySavedTracks({ offset, limit })
+    return songs.items.map(song => SpotifySongsHandling(song.track))
+  }
+
+  async playMusic(musicId: string) {
+    await this.spotifyApi.queue(musicId)
+    await this.spotifyApi.skipToNext()
   }
   
   logout() {

@@ -1,7 +1,44 @@
 @import 'variables';
 
 .container-card {
+    width: 100%;
+    height: 17rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     box-shadow: 0 0 15px $color-lightBlack-10;
-    padding: 2rem;
     background: $color-secundary;
+    border-radius: 2rem;
+    margin-top: 2rem;
+
+    .card-artist {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin: 2rem;
+
+        h1 {
+            color: $color-lightBlack-70;
+        }
+
+        button {
+            background: $color-primary;
+            border-radius: 1.4rem;
+            width: 8.5rem;
+            height: 2.8rem;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: $color-secundary;
+        }
+    }
+
+    .card-image {
+        img {
+            width: 17rem;
+            height: 17rem;
+            border-radius: 0 2rem 2rem 0;
+        }
+    }
 }

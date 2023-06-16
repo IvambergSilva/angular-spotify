@@ -9,7 +9,7 @@ $h-play-lists: calc($h-spotify-logo + $h-menu-options + $h-footer-user);
 .leftPanel-container {
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    max-width: 100%;
     min-height: 100vh;
     overflow-y: hidden;
     background: $color-secundary;

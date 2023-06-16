@@ -6,26 +6,37 @@
     width: 100vw;
     height: 100vh;
 
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
 
-    img {
-        width: 40%;
+    .login-logo {
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 40%;
+        }
     }
 
-    button {
-        font-size: 1.8rem;
-        min-width: 20rem;
-        padding: 1rem 2rem;
-        border-radius: 5rem;
-        border: none;
-        color: #FFF;
-        cursor: pointer;
-        background: $color-primary;
-    
-        &:active {
-            position: relative;
-            top: 2px;
+    .login-button {
+        display: flex;
+        justify-content: center;
+        
+        button {
+            font-size: 1.8rem;
+            min-width: 20rem;
+            padding: 1rem 2rem;
+            border-radius: 5rem;
+            border: none;
+            color: #FFF;
+            cursor: pointer;
+            background: $color-primary;
+            
+            &:active {
+                position: relative;
+                top: 2px;
+            }
         }
     }
 }

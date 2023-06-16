@@ -9,6 +9,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from '../home/home.component';
 import { PlayerCardComponent } from 'src/app/components/player-card/player-card.component';
 import { TopArtistaComponent } from 'src/app/components/top-artista/top-artista.component';
+import { RightPanelComponent } from 'src/app/components/right-panel/right-panel.component';
+import { LikedSongComponent } from 'src/app/components/liked-song/liked-song.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { TopArtistaComponent } from 'src/app/components/top-artista/top-artista.
     MenuButtonComponent,
     HomeComponent,
     PlayerCardComponent,
-    TopArtistaComponent
+    TopArtistaComponent,
+    RightPanelComponent,
+    LikedSongComponent
   ],
   imports: [
     CommonModule,
