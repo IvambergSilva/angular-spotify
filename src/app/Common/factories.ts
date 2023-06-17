@@ -4,7 +4,7 @@ import { IMusic } from "../Interfaces/IMusic";
 export function newArtist(): IArtist {
     return {
         id: '',
-        name: 'Nattan',
+        name: '',
         imageUrl: ''
     }
 }

@@ -88,7 +88,28 @@ export class SpotifyService {
     await this.spotifyApi.queue(musicId)
     await this.spotifyApi.skipToNext()
   }
+
+  async getCurrentMusic(): Promise<IMusic> {
+    const currentMusic = await this.spotifyApi.getMyCurrentPlayingTrack()
+    return SpotifySongsHandling(currentMusic.item)
+  }
+
+  async skipMusic() {
+    await this.spotifyApi.skipToNext()
+  }
   
+  async returnMusic() {
+    await this.spotifyApi.skipToPrevious()
+  }
+
+  async pauseMusic() {
+    await this.spotifyApi.pause()
+  }
+
+  async playMusicCard() {
+    await this.spotifyApi.play()
+  }
+
   logout() {
     localStorage.clear()
     this.router.navigate(['/login'])

@@ -3,6 +3,7 @@ import { IArtist } from "../Interfaces/IArtist";
 import { IMusic } from "../Interfaces/IMusic";
 import { IPlaylist } from "../Interfaces/IPlaylist";
 import { IUser } from "../Interfaces/IUser";
+import { newSongs } from "./factories";
 
 export function SpotifyUserHandling(user: SpotifyApi.CurrentUsersProfileResponse): IUser{
     return {
@@ -29,6 +30,9 @@ export function SpotifyTopArtistHandling(topArtists: SpotifyApi.ArtistObjectFull
 }
 
 export function SpotifySongsHandling(songs: SpotifyApi.TrackObjectFull): IMusic {
+
+    if(!songs) return newSongs()
+    
     const msToMin = (ms: number) => {
         const data = addMilliseconds(new Date(0), ms);
         return format(data, 'mm:ss')
@@ -40,7 +44,7 @@ export function SpotifySongsHandling(songs: SpotifyApi.TrackObjectFull): IMusic 
         album: {
             id: songs.id,
             name: songs.album.name,
-            imageUrl: songs.album.images.pop().url
+            imageUrl: songs.album.images.sort((a,b) => a.width - b.width).pop().url
         },
         artists: songs.artists.map(artists => ({
             id: artists.id,

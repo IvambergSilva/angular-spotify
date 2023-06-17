@@ -10,7 +10,8 @@ import { HomeComponent } from '../home/home.component';
 import { PlayerCardComponent } from 'src/app/components/player-card/player-card.component';
 import { TopArtistaComponent } from 'src/app/components/top-artista/top-artista.component';
 import { RightPanelComponent } from 'src/app/components/right-panel/right-panel.component';
-import { LikedSongComponent } from 'src/app/components/liked-song/liked-song.component';
+import { FavoriteArtistsComponent } from 'src/app/components/favorite-artists/favorite-artists.component';
+import { FavoriteArtistsItemComponent } from 'src/app/components/favorite-artists-item/favorite-artists-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { LikedSongComponent } from 'src/app/components/liked-song/liked-song.com
     PlayerCardComponent,
     TopArtistaComponent,
     RightPanelComponent,
-    LikedSongComponent
+    FavoriteArtistsComponent,
+    FavoriteArtistsItemComponent,
+    PlayerCardComponent
   ],
   imports: [
     CommonModule,

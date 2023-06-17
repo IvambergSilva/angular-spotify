@@ -1,3 +1,5 @@
+@import 'variables';
+
 :host {
     display: flex;
     
@@ -9,4 +11,13 @@
         height: 100%;
         width: 100%;
     }
-}
+
+    .rightPanel-container {
+        box-shadow: 1px 1px 40px #00000015;
+        background: $color-secundary;
+        min-width: 25rem;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+}    

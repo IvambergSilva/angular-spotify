@@ -1,0 +1,50 @@
+@import 'variables';
+
+.playerCard-container {
+    background: $color-secundary;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 0 15px rgba($color-lightBlack-30, 10%);
+    max-width: 21rem;
+
+    p {
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-align: center;
+        margin: 1.8rem 0 2.6rem;
+        color: $color-primary;
+    }
+    
+    .playerCard-image {
+        display: flex;
+        justify-content: center;
+        img {
+            width: 18rem;
+            border-radius: 1.2rem;
+            margin: auto;
+        }
+    }
+
+    .playerCard-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        justify-content: center;
+        
+        fa-icon {
+            color: $color-primary;
+            font-size: 2.9rem;
+            cursor: pointer;
+            margin: auto;
+
+            &:nth-child(2) {
+                font-size: 4.3rem;
+            }
+            &:active {
+                position: relative;
+                top: 1px;
+            }
+        }
+
+    }
+}

@@ -1,7 +1,8 @@
 @import 'variables';
 
 .container-card {
-    width: 100%;
+    max-width: 90%;
+    margin: 2rem auto 0;
     height: 17rem;
     display: flex;
     align-items: center;
@@ -9,7 +10,6 @@
     box-shadow: 0 0 15px $color-lightBlack-10;
     background: $color-secundary;
     border-radius: 2rem;
-    margin-top: 2rem;
 
     .card-artist {
         display: flex;

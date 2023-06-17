@@ -1,1 +1,20 @@
-<p>player-card works!</p>
+<div class="playerCard-container">
+    <div class="playerCard-image">
+        <img [src]="imageUrl" alt="">
+    </div>
+    <p>{{name}}</p>
+    <div class="playerCard-icons">
+        <fa-icon
+            [icon]="backwardIcon"
+            (click)="returnMusic()"
+        ></fa-icon>
+        <fa-icon
+            [icon]="play_pause"
+            (click)="statusMusic()"
+        ></fa-icon>
+        <fa-icon
+            [icon]="forwardIcon"
+            (click)="skipMusic()"
+        ></fa-icon>
+    </div>
+</div>

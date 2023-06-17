@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routes';
+import { RecentSearchesComponent } from './components/recent-searches/recent-searches.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    RecentSearchesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,46 +1,97 @@
 @import 'variables';
 
+$border-radius: 1rem;
+
 :host {
-    display: flex;
-    width: 100%;
+    max-width: 100%;
     
     .container-myMusics {
-        padding: 0 5rem 2rem;
-        width: 100%;
         max-height: 100vh;
         overflow-y: auto;
-    }
-
-    table {
-        width: 100%;
-        margin-top: 3rem;
         
-        thead {
-            tr {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                text-align: left;
+        &::-webkit-scrollbar {
+            width: 0.5rem;
+            &-thumb {
+                background: rgba($color-primary, 20%);
+                border-radius: 0.5rem;
+            }
+        }
 
-                font-size: 1.2rem;
-                font-weight: 600;
-                color: $color-lightBlack-30;
+        h1 {
+            text-align: center;
+        }
+    }
+    .likedSong {
+        max-width: 90%;
+        margin: 3rem auto 0;
+        
+        table {
+            max-width: 90%;
+            margin: 3rem auto 0;
+        
+            border-collapse: collapse;
+            
+            thead {
+                tr {
+                    width: 90%;
+                    text-align: left;
+
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: $color-lightBlack-30;
                 
                 th {
-                    padding: 0.8rem 3rem 0.8rem 0;
-                    
-                    &:nth-child(2) {
-                        grid-column: 2 / 3;
-                    }
-                    &:nth-child(4) {
-                        text-align: right;
-                    }
+                    padding: 1rem 3rem 1rem 1rem;
                 }
             }
         }
         
         tbody {
-            overflow-y: auto;
+            tr {
+                &:hover {
+                    cursor: pointer;
+                    td {
+                        color: $color-primary;
+                    }
+                 }
+                 
+                 td {
+                     color: $color-lightBlack-80;
+                     font-weight: 600;
+                     font-size: 1rem;
+                     padding: 1rem 3rem 1rem 1rem;
+                     
+                     &:nth-child(4) {
+                         text-align: right;
+                        }
+                        
+                        &:nth-child(5) {
+                            padding-right: 1rem;
+                        }
+                        
+                        fa-icon {
+                            color: $color-primary;
+                            font-size: 1rem;
+                        }
+                    }
+                    
+                }
+
+                .running {
+                    background: #fff;
+                    box-shadow: 0 0 15px $color-lightBlack-30;
+                    border-radius: 1rem;
+                    td {
+                        &:nth-child(1){
+                            border-radius: $border-radius 0 0  $border-radius;
+                        }
+                        &:nth-child(5){
+                            border-radius: 0 $border-radius  $border-radius 0;
+                        }
+                        color: $color-primary;
+                    }
+                }
+            }
         }
     }
 }
