@@ -3,13 +3,12 @@
 $border-radius: 1rem;
 
 :host {
-    max-width: 100%;
-    
-    .container-myMusics {
+    max-width: 100%;    
+    .playList {
         max-height: 100vh;
         overflow-y: auto;
         padding-bottom: 2rem;
-        
+                
         &::-webkit-scrollbar {
             width: 0.5rem;
             &-thumb {
@@ -18,17 +17,14 @@ $border-radius: 1rem;
             }
         }
 
+    
         h1 {
             text-align: center;
         }
-    }
-    .likedSong {
-        max-width: 90%;
-        margin: 3rem auto 0;
         
         table {
             max-width: 90%;
-            margin: 3rem auto 0;
+            margin: 1rem auto 0;
         
             border-collapse: collapse;
             

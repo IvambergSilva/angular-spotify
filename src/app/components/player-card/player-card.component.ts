@@ -17,7 +17,7 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
   name: string
   imageUrl: string
 
-  play_pause = faPause
+  play_pause = faPlay
   backwardIcon = faStepBackward
   forwardIcon = faStepForward
   

@@ -10,25 +10,31 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class FavoriteArtistsComponent {
 
-  topArtist: IArtist[] = [] 
+  topArtist: IArtist[] = []
+
+  id: string = ''
   name: string = ''
   imageUrl: string = ''
 
-  @Output()
-  click = new EventEmitter<void>()
+  constructor (
+    private spotifyService: SpotifyService
+  ) { }
 
-  // constructor (
-  //   private spotifyService: SpotifyService
-  // ) { }
+  ngOnInit(): void {
+    this.getTopArtists()
+  }
 
-  // ngOnInit(): void {
-  //   this.getTopArtists()
-  // }
-
-  // async getTopArtists() {
-  //   const topArtists = await this.spotifyService.getTopArtistas(3)
-  //   // if(!!topArtists) this.topArtist = topArtists.pop()
-  //   console.log(this.topArtist);
-  // }
+  async getTopArtists() {
+    const topArtists = await this.spotifyService.getTopArtistas(5)
+    
+    if(!!topArtists) {
+      this.topArtist = topArtists
+      console.log(this.topArtist);
+      
+      // this.id = this.topArtist.id
+      // this.name = this.topArtist.name
+      // this.imageUrl = this.topArtist.imageUrl
+    }
+  }
 
 }

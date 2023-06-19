@@ -1,12 +1,11 @@
 :host {
-
     .rightPanel-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         min-height: 100vh;
         max-width: 30rem;
-        padding: 4rem 0 2rem;
+        padding: 2rem 0;
 
         .rightPanel-topArtists {
             flex-grow: 1;

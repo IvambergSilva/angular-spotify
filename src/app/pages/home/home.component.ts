@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   async getSongs() {
     const mySongs = await this.spotifyService.getSongs()
-    console.log(mySongs);
     this.songs = mySongs
   }
 
@@ -52,10 +51,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   getCurrentMusic() {
     const subs =  this.playerService.currentMusic.subscribe(music => {
       this.currentMusic = music
-      console.log(this.currentMusic);
     })
-
     this.subscribes.push(subs)
   }
-
 }

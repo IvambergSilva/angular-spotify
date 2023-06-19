@@ -8,7 +8,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   templateUrl: './top-artista.component.html',
   styleUrls: ['./top-artista.component.scss']
 })
-export class TopArtistaComponent implements OnInit{
+export class TopArtistaComponent implements OnInit {
 
   topArtist: IArtist = newArtist()
    

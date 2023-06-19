@@ -12,6 +12,8 @@ import { TopArtistaComponent } from 'src/app/components/top-artista/top-artista.
 import { RightPanelComponent } from 'src/app/components/right-panel/right-panel.component';
 import { FavoriteArtistsComponent } from 'src/app/components/favorite-artists/favorite-artists.component';
 import { FavoriteArtistsItemComponent } from 'src/app/components/favorite-artists-item/favorite-artists-item.component';
+import { MusicListComponent } from '../music-list/music-list.component';
+import { BannerComponent } from 'src/app/components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FavoriteArtistsItemComponent } from 'src/app/components/favorite-artist
     RightPanelComponent,
     FavoriteArtistsComponent,
     FavoriteArtistsItemComponent,
-    PlayerCardComponent
+    PlayerCardComponent,
+    MusicListComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,

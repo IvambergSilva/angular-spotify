@@ -1,8 +1,11 @@
 <div class="favoriteArtist-container">
-    <h1 class="title-md mt-4">Top 5 artistas</h1>
-    <app-favorite-artists-item
-    >
-    
-    <!-- *ngFor="let artist of topArtist" -->
-    </app-favorite-artists-item>
+    <h1 class="title-md">Top 5 artistas</h1>
+    <div class="top-five">
+        <app-favorite-artists-item
+            *ngFor="let artist of topArtist"
+            name="{{artist.name}}"
+            imageUrl="{{artist.imageUrl}}"
+        >
+        </app-favorite-artists-item>    
+    </div>
 </div>
